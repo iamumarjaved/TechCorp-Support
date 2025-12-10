@@ -1,0 +1,32 @@
+{
+  "ServiceName": "chatbot-frontend",
+  "SourceConfiguration": {
+    "AuthenticationConfiguration": {
+      "AccessRoleArn": "arn:aws:iam::642570498698:role/service-role/AppRunnerECRAccessRole"
+    },
+    "ImageRepository": {
+      "ImageIdentifier": "642570498698.dkr.ecr.ap-south-1.amazonaws.com/chatbot-frontend:latest",
+      "ImageRepositoryType": "ECR",
+      "ImageConfiguration": {
+        "Port": "3000",
+        "RuntimeEnvironmentVariables": {
+          "BACKEND_URL": "https://p8n5ekth2d.ap-south-1.awsapprunner.com",
+          "NODE_ENV": "production",
+          "HOSTNAME": "0.0.0.0"
+        }
+      }
+    }
+  },
+  "InstanceConfiguration": {
+    "Cpu": "1 vCPU",
+    "Memory": "2 GB"
+  },
+  "HealthCheckConfiguration": {
+    "Protocol": "HTTP",
+    "Path": "/api/health",
+    "Interval": 20,
+    "Timeout": 10,
+    "HealthyThreshold": 1,
+    "UnhealthyThreshold": 5
+  }
+}

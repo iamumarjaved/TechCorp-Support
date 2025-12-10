@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+backend
+*.md
+.env
+.env.local
+test-*.py
+test-*.mjs
+probe-mcp.mjs
